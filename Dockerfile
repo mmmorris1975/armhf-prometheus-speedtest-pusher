@@ -2,5 +2,6 @@ FROM hypriot/rpi-python:latest
 MAINTAINER Mike Morris
 
 RUN pip install speedtest-cli prometheus_client
+COPY collect_speedtest_metrics.py /collect_speedtest_metrics
 
-ENTRYPOINT [ "/bin/sh" ]
+ENTRYPOINT [ "/collect_speedtest_metrics" ]
