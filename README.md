@@ -1,4 +1,4 @@
-A python-based Docker image with the python speedtest-cli and prometheus_client modules installed from PyPi.
+A python-based Docker image for the armhf (RPi) platform with the python speedtest-cli and prometheus_client modules installed from PyPi.
 
 Should be called as an ephemeral (vs. long-running) container, and the speedtest results will be pushed to
 a Prometheus Pushgateway.
