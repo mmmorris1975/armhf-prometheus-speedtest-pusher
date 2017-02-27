@@ -1,0 +1,15 @@
+[Unit]
+Description=Run speedtest-cli and send results to Prometheus pushgateway
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+Environment="IMAGE_VER=latest"
+EnvironmentFile=-/etc/default/speedtest-pusher
+EnvironmentFile=-/etc/sysconfig/speedtest-pusher
+ExecStart=/usr/bin/docker run --rm $DOCKER_OPTS armhf-prometheus-speedtest-pusher:${IMAGE_VER}
+
+[Install]
+Alias=speedtest-pusher-container.service
+Alias=speedtest-pusher.service

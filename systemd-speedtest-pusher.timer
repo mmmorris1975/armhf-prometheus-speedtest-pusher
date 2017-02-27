@@ -1,0 +1,11 @@
+[Unit]
+Description=Run speedtest-pusher docker container every 30 minutes
+Requires=docker.service
+
+[Timer]
+Unit=speedtest-pusher-container.service
+OnActiveSec=30sec
+OnUnitInactiveSec=30min
+
+[Install]
+WantedBy=timers.target
